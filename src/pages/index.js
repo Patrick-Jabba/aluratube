@@ -4,8 +4,11 @@ import TimeLine from "../components/Timeline";
 
 import { CSSReset } from "../components/CSSReset";
 import config from "../../config.json";
+import { Footer } from "../components/Footer";
 
 export default function HomePage() {
+  const valorDoFiltro = "";
+
   return (
     <>
       <CSSReset />
@@ -14,12 +17,15 @@ export default function HomePage() {
           display: "flex",
           flexDirection: "column",
           flex: 1,
-          // backgroundColor: "red",
         }}
       >
         <Menu />
         <Header />
-        <TimeLine playlists={config.playlists} />
+        <TimeLine 
+        searchValue={valorDoFiltro}
+        playlists={config.playlists} 
+        />
+        <Footer favorites={config.favorites} />
       </div>
     </>
   );

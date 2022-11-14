@@ -1,7 +1,14 @@
 import styled from "styled-components";
 
 export const StyledHeader = styled.div`
-  img {
+  .banner {
+    width: 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+  }
+
+  .profile-pic {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -16,3 +23,11 @@ export const StyledHeader = styled.div`
     gap: 2px;
   }
 `;
+
+export const StyledBanner = styled.div`
+  background-image: url(${({bg}) => bg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 230px;
+  
+`

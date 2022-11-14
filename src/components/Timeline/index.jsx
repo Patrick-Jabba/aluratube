@@ -1,20 +1,20 @@
 import { StyledTimeline } from "./styles";
 
-export default function TimeLine(propriedades) {
-  const playlistNames = Object.keys(propriedades.playlists);
+export default function TimeLine({searchValue, ...props}) {
+  const playlistNames = Object.keys(props.playlists);
   //Statement
   // REACT prefere Retorno por expressão
   return (
     <StyledTimeline>
       {playlistNames.map((playlistName) => {
-        const videos = propriedades.playlists[playlistName];
-        console.log("teste345", playlistName);
-        console.log(videos);
+        const videos = props.playlists[playlistName];
         return (
           <section>
             <h2>{playlistName}</h2>
             <div>
-              {videos.map((video) => {
+              {videos.filter((video) => {
+                 return video.title.includes(searchValue) 
+              }).map((video) => {
                 return (
                   <a href={video.url}>
                     <img src={video.thumb} alt="Imagem do video" />
